@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Strona Testowa dla Playwright i Cypress</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <h1>Strona Testowa dla Automatyzacji</h1>
+
+    <div class="navigation" data-testid="navigation-buttons">
+      <button
+        onclick="window.location.href='listy.html'"
+        data-testid="przycisk-listy"
+      >
+        Przejdź do List
+      </button>
+      <button
+        onclick="window.location.href='elementy.html'"
+        data-testid="przycisk-elementy"
+      >
+        Przejdź do Elementów
+      </button>
+    </div>
+
+    <form id="testForm">
+      <div class="form-group">
+        <label for="imie">Imię:</label>
+        <input
+          type="text"
+          id="imie"
+          name="imie"
+          data-testid="input-imie"
+          placeholder="Wpisz swoje imię"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          data-testid="input-email"
+          placeholder="Wpisz swój email"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="haslo">Hasło:</label>
+        <input
+          type="password"
+          id="haslo"
+          name="haslo"
+          data-testid="input-haslo"
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="plec">Płeć:</label>
+        <div>
+          <input
+            type="radio"
+            id="mezczyzna"
+            name="plec"
+            value="mezczyzna"
+            data-testid="radio-mezczyzna"
+          />
+          <label for="mezczyzna">Mężczyzna</label>
+          <input
+            type="radio"
+            id="kobieta"
+            name="plec"
+            value="kobieta"
+            data-testid="radio-kobieta"
+          />
+          <label for="kobieta">Kobieta</label>
+          <input
+            type="radio"
+            id="inne"
+            name="plec"
+            value="inne"
+            data-testid="radio-inne"
+          />
+          <label for="inne">Inne</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="jezyk">Wybierz język:</label>
+        <select id="jezyk" name="jezyk" data-testid="select-jezyk">
+          <option value="">-- Wybierz --</option>
+          <option value="polski">Polski</option>
+          <option value="angielski">Angielski</option>
+          <option value="niemiecki">Niemiecki</option>
+          <option value="hiszpanski">Hiszpański</option>
+        </select>
+      </div>
+
+      <div class="form-group">
+        <label for="zainteresowania">Zainteresowania:</label>
+        <div>
+          <input
+            type="checkbox"
+            id="programowanie"
+            name="zainteresowania"
+            value="programowanie"
+            data-testid="checkbox-programowanie"
+          />
+          <label for="programowanie">Programowanie</label>
+          <input
+            type="checkbox"
+            id="sport"
+            name="zainteresowania"
+            value="sport"
+            data-testid="checkbox-sport"
+          />
+          <label for="sport">Sport</label>
+          <input
+            type="checkbox"
+            id="muzyka"
+            name="zainteresowania"
+            value="muzyka"
+            data-testid="checkbox-muzyka"
+          />
+          <label for="muzyka">Muzyka</label>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="wiadomosc">Wiadomość:</label>
+        <textarea
+          id="wiadomosc"
+          name="wiadomosc"
+          rows="5"
+          cols="30"
+          data-testid="textarea-wiadomosc"
+        ></textarea>
+      </div>
+
+      <button type="submit" data-testid="przycisk-wyslij">Wyślij</button>
+    </form>
+  </body>
+</html>

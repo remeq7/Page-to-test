@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Strona Testowa - Listy</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <h1>Strona z Listami do Testów</h1>
+
+    <div class="navigation" data-testid="navigation-buttons">
+      <button
+        onclick="window.location.href='elementy.html'"
+        data-testid="przycisk-elementy"
+      >
+        Przejdź do Elementów
+      </button>
+      <button
+        onclick="window.location.href='index.html'"
+        data-testid="przycisk-index"
+      >
+        Powrót do Strony Głównej
+      </button>
+    </div>
+
+    <h2>Lista nieuporządkowana (Unordered List)</h2>
+    <ul data-testid="lista-nieuporzadkowana">
+      <li data-testid="li-nieuporzadkowana-1">Element pierwszy</li>
+      <li data-testid="li-nieuporzadkowana-2">Element drugi</li>
+      <li data-testid="li-nieuporzadkowana-3">
+        <a href="https://www.example.com" data-testid="link-example"
+          >Link do Example</a
+        >
+      </li>
+      <li data-testid="li-nieuporzadkowana-4">Element czwarty</li>
+    </ul>
+
+    <h2>Lista uporządkowana (Ordered List)</h2>
+    <ol data-testid="lista-uporzadkowana">
+      <li data-testid="li-uporzadkowana-1">Pierwszy element</li>
+      <li data-testid="li-uporzadkowana-2">Drugi element</li>
+      <li data-testid="li-uporzadkowana-3">Trzeci element</li>
+    </ol>
+
+    <h2>Lista definicji (Definition List)</h2>
+    <dl data-testid="lista-definicji">
+      <dt data-testid="dt-definicja-1">Termin 1</dt>
+      <dd data-testid="dd-definicja-1">Definicja terminu 1</dd>
+      <dt data-testid="dt-definicja-2">Termin 2</dt>
+      <dd data-testid="dd-definicja-2">
+        Definicja terminu 2 z dodatkowym opisem.
+      </dd>
+      <dd data-testid="dd-definicja-3">Kolejny opis dla terminu 2.</dd>
+      <dt data-testid="dt-definicja-3">Termin 3</dt>
+      <dd data-testid="dd-definicja-4">Krótka definicja terminu 3.</dd>
+    </dl>
+  </body>
+</html>
