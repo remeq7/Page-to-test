@@ -1,6 +1,6 @@
 describe("Testing the homepage", () => {
   beforeEach(() => {
-    cy.visit("html/index.html");
+    cy.visit("index.html");
   });
 
   it("Should correctly fill and submit the form", () => {
