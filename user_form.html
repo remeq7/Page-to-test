@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Testowanie API z Cypress</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+          </button>
+      <button
+        onclick="window.location.href='index.html'"
+        data-testid="przycisk-index"
+      >
+        Powrót do Strony Głównej
+      </button>
+    <h1>Wyszukaj użytkownika</h1>
+    <form id="user-form">
+      <label for="userId">ID użytkownika:</label>
+      <input type="number" id="userId" name="userId" />
+      <button type="submit">Szukaj</button>
+    </form>
+    <div id="user-details"></div>
+
+
+    <script>
+      document
+        .getElementById("user-form")
+        .addEventListener("submit", async (event) => {
+          event.preventDefault();
+          const userId = document.getElementById("userId").value;
+          const detailsDiv = document.getElementById("user-details");
+
+          try {
+            const response = await fetch(`/api/users/${userId}`);
+            if (!response.ok) {
+              if (response.status === 404) {
+                detailsDiv.innerHTML = "<p>Nie znaleziono użytkownika.</p>";
+                return;
+              }
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            const data = await response.json();
+            detailsDiv.innerHTML = `
+                    <h2>Dane użytkownika</h2>
+                    <p>ID: ${data.id}</p>
+                    <p>Imię: ${data.name}</p>
+                    <p>Email: ${data.email}</p>
+                `;
+          } catch (error) {
+            console.error("Wystąpił błąd:", error);
+            if (!detailsDiv.innerHTML.includes("Nie znaleziono użytkownika.")) {
+              detailsDiv.innerHTML =
+                "<p>Wystąpił błąd podczas pobierania danych.</p>";
+            }
+          }
+        });
+    </script>
+  </body>
+</html>
