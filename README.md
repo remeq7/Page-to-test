@@ -1,37 +1,72 @@
-## Technologie
+# 🧪 Page to Test – Cypress E2E Testing Project
 
-- HTML
-- CSS
-- JavaScript (opcjonalnie)
-- [Cypress](https://www.cypress.io/) (do testów end-to-end)
+This is a demo project for showcasing end-to-end test automation using **Cypress**.  
+It includes a simple HTML page and a set of tests verifying login functionality and UI elements.
 
-## Uruchomienie lokalne
+---
 
-1.  Sklonuj repozytorium:
+## 🚀 Technologies
 
-    ```bash
-    git clone [https://github.com/remeq7/Page-to-test.git](https://github.com/remeq7/Page-to-test.git)
-    cd Page-to-test
-    ```
+- **HTML**
+- **CSS**
+- **JavaScript** (optional)
+- [**Cypress**](https://www.cypress.io/) – for end-to-end testing
 
-2.  Otwórz pliki HTML w przeglądarce.
+---
 
-## Uruchomienie testów Cypress
+## 📦 Local Setup
 
-1.  Upewnij się, że masz zainstalowany [Node.js](https://nodejs.org/).
+1. Clone the repository:
 
-2.  Zainstaluj zależności projektu:
+   ```bash
+   git clone https://github.com/remeq7/Page-to-test.git
+   cd Page-to-test
+   ```
 
-    ```bash
-    npm install
-    ```
+2. Open the HTML files in your browser (e.g., `index.html` or `zalogowany.html`)
 
-3.  Uruchom Cypress:
+---
 
-    ```bash
-    npx cypress open
-    ```
+## ✅ Running Cypress Tests
 
-    ## DEMO strony
+1. Make sure [Node.js](https://nodejs.org/) is installed.
+2. Install project dependencies:
 
-    https://remeq7.github.io/Page-to-test/
+   ```bash
+   npm install
+   ```
+
+3. Launch Cypress:
+   ```bash
+   npx cypress open
+   ```
+
+---
+
+## 🌐 Demo
+
+View the live version of the page:  
+👉 [https://remeq7.github.io/Page-to-test/](https://remeq7.github.io/Page-to-test/)
+
+---
+
+## 📁 Project Structure
+
+```
+Page-to-test/
+├── cypress/            # Automated tests
+│   └── e2e/
+│       └── login.cy.js
+├── zalogowany.html     # Post-login page
+├── index.html          # Main test page
+├── cypress.config.js   # Cypress configuration
+└── README.md
+```
+
+---
+
+## ✍️ Author
+
+**Remigiusz Wróblewski**  
+QA Engineer | Test Automation | Cypress  
+[LinkedIn](https://linkedin.com/in/rwroblewski) • [GitHub](https://github.com/remeq7)
