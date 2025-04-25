@@ -84,7 +84,7 @@ describe("Elements Test Page", () => {
         .should("have.attr", "type", "date");
     });
 
-    //add test to pick date
+    //add test to pick dates
   });
 
   describe("Color Input Section", () => {
