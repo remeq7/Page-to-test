@@ -5,7 +5,7 @@ A simple HTML page created for practicing and demonstrating automated UI testing
 ## 🌐 Live Preview
 
 You can access the test page here:  
-👉 [https://remeq7.github.io/Page-to-test/](https://remeq7.github.io/Page-to-test/)
+👉 https://remeq7.github.io/Page-to-test/
 
 ## 📂 Project Structure
 
