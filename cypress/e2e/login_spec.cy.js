@@ -1,6 +1,6 @@
 describe("Login Page Tests", () => {
   beforeEach(() => {
-    cy.visit("login.html");
+    cy.visit("html/login.html");
     localStorage.clear(); // Clear localStorage before each test
   });
 
@@ -45,7 +45,7 @@ describe("Login Page Tests", () => {
     cy.window().then((win) => {
       win.localStorage.setItem("isLoggedIn", "true");
     });
-    cy.visit("login.html");
+    cy.visit("html/login.html");
     cy.url().should("include", "logged_in.html");
     cy.get("h1").should("contain", "Welcome, logged in user!");
   });
@@ -53,14 +53,14 @@ describe("Login Page Tests", () => {
 
 describe("Logged In Page Tests", () => {
   beforeEach(() => {
-    cy.visit("logged_in.html");
+    cy.visit("html/logged_in.html");
   });
 
   it("Should correctly display the logged in page if the user is logged in", () => {
     cy.window().then((win) => {
       win.localStorage.setItem("isLoggedIn", "true");
     });
-    cy.visit("logged_in.html");
+    cy.visit("html/logged_in.html");
     cy.get("h1").should("contain", "Welcome, logged in user!");
     cy.get("button#logoutButton")
       .should("be.visible")
@@ -71,7 +71,7 @@ describe("Logged In Page Tests", () => {
     cy.window().then((win) => {
       win.localStorage.removeItem("isLoggedIn");
     });
-    cy.visit("logged_in.html");
+    cy.visit("html/logged_in.html");
     cy.url().should("include", "login.html");
     cy.get("h2").should("contain", "Login");
   });
@@ -80,7 +80,7 @@ describe("Logged In Page Tests", () => {
     cy.window().then((win) => {
       win.localStorage.setItem("isLoggedIn", "true");
     });
-    cy.visit("logged_in.html");
+    cy.visit("html/logged_in.html");
     cy.get("button#logoutButton").click();
     cy.url().should("include", "login.html");
     cy.get("h2").should("contain", "Login");

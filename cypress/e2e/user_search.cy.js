@@ -1,6 +1,6 @@
 describe("User Search", () => {
   beforeEach(() => {
-    cy.visit("user_form.html");
+    cy.visit("html/user_form.html");
   });
 
   it("should display user data after a successful API request (mocked)", () => {
@@ -72,7 +72,7 @@ describe("User Search", () => {
       "getUserOffline"
     );
 
-    cy.visit("user_form.html", {
+    cy.visit("html/user_form.html", {
       onBeforeLoad(win) {
         Object.defineProperty(win.navigator, "onLine", { value: false });
       },
