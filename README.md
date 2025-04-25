@@ -31,3 +31,7 @@
     ```bash
     npx cypress open
     ```
+
+    ## DEMO strony
+
+    https://remeq7.github.io/Page-to-test/
