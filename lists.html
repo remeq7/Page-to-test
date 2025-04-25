@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Page - Lists</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <h1>Page with Lists for Testing</h1>
+
+    <div class="navigation" data-testid="navigation-buttons">
+      <button
+        onclick="window.location.href='elements.html'"
+        data-testid="go-to-elements-button"
+      >
+        Go to Elements
+      </button>
+      <button
+        onclick="window.location.href='index.html'"
+        data-testid="back-to-homepage-button"
+      >
+        Back to Homepage
+      </button>
+    </div>
+
+    <h2>Unordered List</h2>
+    <ul data-testid="unordered-list">
+      <li data-testid="unordered-list-item-1">First item</li>
+      <li data-testid="unordered-list-item-2">Second item</li>
+      <li data-testid="unordered-list-item-3">
+        <a href="https://www.example.com" data-testid="example-link"
+          >Link to Example</a
+        >
+      </li>
+      <li data-testid="unordered-list-item-4">Fourth item</li>
+    </ul>
+
+    <h2>Ordered List</h2>
+    <ol data-testid="ordered-list">
+      <li data-testid="ordered-list-item-1">First item</li>
+      <li data-testid="ordered-list-item-2">Second item</li>
+      <li data-testid="ordered-list-item-3">Third item</li>
+    </ol>
+
+    <h2>Definition List</h2>
+    <dl data-testid="definition-list">
+      <dt data-testid="definition-term-1">Term 1</dt>
+      <dd data-testid="definition-description-1">Definition of term 1</dd>
+      <dt data-testid="definition-term-2">Term 2</dt>
+      <dd data-testid="definition-description-2">
+        Definition of term 2 with additional description.
+      </dd>
+      <dd data-testid="definition-additional-description-2">
+        Another description for term 2.
+      </dd>
+      <dt data-testid="definition-term-3">Term 3</dt>
+      <dd data-testid="definition-description-3">
+        Short definition of term 3.
+      </dd>
+    </dl>
+  </body>
+</html>

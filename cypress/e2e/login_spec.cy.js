@@ -1,89 +1,89 @@
-describe("Testy strony logowania", () => {
+describe("Login Page Tests", () => {
   beforeEach(() => {
     cy.visit("login.html");
-    localStorage.clear(); // Wyczyść localStorage przed każdym testem
+    localStorage.clear(); // Clear localStorage before each test
   });
 
-  it("Powinien poprawnie wyświetlić stronę logowania", () => {
-    cy.get("h2").should("contain", "Logowanie");
-    cy.get('label[for="username"]').should("contain", "Nazwa użytkownika:");
-    cy.get('label[for="password"]').should("contain", "Hasło:");
+  it("Should correctly display the login page", () => {
+    cy.get("h2").should("contain", "Login");
+    cy.get('label[for="username"]').should("contain", "Username:");
+    cy.get('label[for="password"]').should("contain", "Password:");
     cy.get('input[name="username"]').should("be.visible");
     cy.get('input[name="password"]').should("be.visible");
-    cy.get('button[type="submit"]').should("contain", "Zaloguj się");
+    cy.get('button[type="submit"]').should("contain", "Log In");
     cy.get("#errorMessage").should("not.be.visible");
   });
 
-  it("Powinien wyświetlić komunikat o błędzie przy nieprawidłowych danych logowania", () => {
-    cy.get('input[name="username"]').type("zle_haslo");
-    cy.get('input[name="password"]').type("zly_login");
+  it("Should display an error message for incorrect login credentials", () => {
+    cy.get('input[name="username"]').type("wrong_password");
+    cy.get('input[name="password"]').type("wrong_login");
     cy.get('button[type="submit"]').click();
     cy.get("#errorMessage")
       .should("be.visible")
-      .should("contain", "Nieprawidłowa nazwa użytkownika lub hasło.");
-    cy.url().should("include", "login.html"); // Powinien pozostać na stronie logowania
+      .should("contain", "Incorrect username or password.");
+    cy.url().should("include", "login.html"); // Should remain on the login page
     cy.window().then((win) => {
-      expect(win.localStorage.getItem("isLoggedIn")).to.be.null; // Sprawdź, czy localStorage nie zostało ustawione
+      expect(win.localStorage.getItem("isLoggedIn")).to.be.null; // Check if localStorage was not set
     });
   });
 
-  it("Powinien przekierować na stronę zalogowany.html po poprawnym zalogowaniu", () => {
+  it("Should redirect to logged_in.html after successful login", () => {
     cy.get('input[name="username"]').type("demo");
     cy.get('input[name="password"]').type("password");
     cy.get('button[type="submit"]').click();
-    cy.url().should("include", "zalogowany.html");
+    cy.url().should("include", "logged_in.html");
     cy.window().then((win) => {
-      expect(win.localStorage.getItem("isLoggedIn")).to.eq("true"); // Sprawdź, czy localStorage zostało ustawione
+      expect(win.localStorage.getItem("isLoggedIn")).to.eq("true"); // Check if localStorage was set
     });
-    cy.get("h1").should("contain", "Witaj, zalogowany użytkowniku!");
+    cy.get("h1").should("contain", "Welcome, logged in user!");
     cy.get("button#logoutButton")
       .should("be.visible")
-      .should("contain", "Wyloguj się");
+      .should("contain", "Log Out");
   });
 
-  it("Powinien automatycznie przekierować na stronę zalogowany.html, jeśli użytkownik jest już zalogowany", () => {
+  it("Should automatically redirect to logged_in.html if the user is already logged in", () => {
     cy.window().then((win) => {
       win.localStorage.setItem("isLoggedIn", "true");
     });
     cy.visit("login.html");
-    cy.url().should("include", "zalogowany.html");
-    cy.get("h1").should("contain", "Witaj, zalogowany użytkowniku!");
+    cy.url().should("include", "logged_in.html");
+    cy.get("h1").should("contain", "Welcome, logged in user!");
   });
 });
 
-describe("Testy strony zalogowany", () => {
+describe("Logged In Page Tests", () => {
   beforeEach(() => {
-    cy.visit("zalogowany.html");
+    cy.visit("logged_in.html");
   });
 
-  it("Powinien poprawnie wyświetlić stronę zalogowaną, jeśli użytkownik jest zalogowany", () => {
+  it("Should correctly display the logged in page if the user is logged in", () => {
     cy.window().then((win) => {
       win.localStorage.setItem("isLoggedIn", "true");
     });
-    cy.visit("zalogowany.html");
-    cy.get("h1").should("contain", "Witaj, zalogowany użytkowniku!");
+    cy.visit("logged_in.html");
+    cy.get("h1").should("contain", "Welcome, logged in user!");
     cy.get("button#logoutButton")
       .should("be.visible")
-      .should("contain", "Wyloguj się");
+      .should("contain", "Log Out");
   });
 
-  it("Powinien przekierować na stronę logowania, jeśli użytkownik nie jest zalogowany", () => {
+  it("Should redirect to the login page if the user is not logged in", () => {
     cy.window().then((win) => {
       win.localStorage.removeItem("isLoggedIn");
     });
-    cy.visit("zalogowany.html");
+    cy.visit("logged_in.html");
     cy.url().should("include", "login.html");
-    cy.get("h2").should("contain", "Logowanie");
+    cy.get("h2").should("contain", "Login");
   });
 
-  it('Powinien wylogować użytkownika i przekierować na stronę logowania po kliknięciu "Wyloguj się"', () => {
+  it('Should log out the user and redirect to the login page after clicking "Log Out"', () => {
     cy.window().then((win) => {
       win.localStorage.setItem("isLoggedIn", "true");
     });
-    cy.visit("zalogowany.html");
+    cy.visit("logged_in.html");
     cy.get("button#logoutButton").click();
     cy.url().should("include", "login.html");
-    cy.get("h2").should("contain", "Logowanie");
+    cy.get("h2").should("contain", "Login");
     cy.window().then((win) => {
       expect(win.localStorage.getItem("isLoggedIn")).to.be.null;
     });

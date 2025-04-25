@@ -1,9 +1,9 @@
-describe("Wyszukiwanie użytkownika", () => {
+describe("User Search", () => {
   beforeEach(() => {
     cy.visit("user_form.html");
   });
 
-  it("powinien wyświetlić dane użytkownika po pomyślnym zapytaniu API (mockowane)", () => {
+  it("should display user data after a successful API request (mocked)", () => {
     cy.intercept("GET", "/api/users/123", { fixture: "user.json" }).as(
       "getUser"
     );
@@ -16,16 +16,16 @@ describe("Wyszukiwanie użytkownika", () => {
       expect(interception.request.method).to.equal("GET");
     });
 
-    cy.get("#user-details").should("contain", "Dane użytkownika");
+    cy.get("#user-details").should("contain", "User Details");
     cy.get("#user-details").should("contain", "ID: 123");
-    cy.get("#user-details").should("contain", "Imię: Jan Kowalski");
+    cy.get("#user-details").should("contain", "Name: Jan Kowalski");
     cy.get("#user-details").should(
       "contain",
       "Email: jan.kowalski@example.com"
     );
   });
 
-  it("powinien wyświetlić komunikat o braku użytkownika, gdy API zwraca 404", () => {
+  it("should display a 'user not found' message when the API returns 404", () => {
     cy.intercept("GET", "/api/users/404", { statusCode: 404, body: {} }).as(
       "getUserNotFound"
     );
@@ -35,10 +35,10 @@ describe("Wyszukiwanie użytkownika", () => {
 
     cy.wait("@getUserNotFound");
 
-    cy.get("#user-details").should("contain", "Nie znaleziono użytkownika.");
+    cy.get("#user-details").should("contain", "User not found.");
   });
 
-  it("powinien wyświetlić komunikat o błędzie, gdy API zwraca błąd serwera", () => {
+  it("should display an error message when the API returns a server error", () => {
     cy.intercept("GET", "/api/users/500", {
       statusCode: 500,
       body: "Internal Server Error",
@@ -51,11 +51,11 @@ describe("Wyszukiwanie użytkownika", () => {
 
     cy.get("#user-details").should(
       "contain",
-      "Wystąpił błąd podczas pobierania danych."
+      "An error occurred while fetching data."
     );
   });
 
-  it("powinien sprawdzić parametry zapytania", () => {
+  it("should check the request parameters", () => {
     cy.intercept("GET", "/api/users/*", (req) => {
       expect(req.url).to.include("/api/users/789");
       req.reply({ fixture: "user.json" });
@@ -67,7 +67,7 @@ describe("Wyszukiwanie użytkownika", () => {
     cy.wait("@getUserWithParams");
   });
 
-  it("powinien przetestować aplikację w trybie offline", () => {
+  it("should test the application in offline mode", () => {
     cy.intercept("GET", "/api/users/*", { fixture: "user.json" }).as(
       "getUserOffline"
     );
@@ -83,6 +83,6 @@ describe("Wyszukiwanie użytkownika", () => {
 
     cy.wait("@getUserOffline");
 
-    cy.get("#user-details").should("contain", "Dane użytkownika");
+    cy.get("#user-details").should("contain", "User Details");
   });
 });

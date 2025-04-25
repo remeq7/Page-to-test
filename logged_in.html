@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Zalogowano</title>
+    <title>Logged In</title>
     <style>
       body {
         font-family: sans-serif;
@@ -45,12 +45,12 @@
   </head>
   <body>
     <div class="logged-in-container">
-      <h1>Witaj, zalogowany użytkowniku!</h1>
-      <button id="logoutButton">Wyloguj się</button>
+      <h1>Welcome, logged in user!</h1>
+      <button id="logoutButton">Log Out</button>
     </div>
 
     <script>
-      // Sprawdź czy użytkownik NIE jest zalogowany
+      // Check if the user is NOT logged in
       if (localStorage.getItem("isLoggedIn") !== "true") {
         window.location.href = "login.html";
       }

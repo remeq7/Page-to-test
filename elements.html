@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test Page - Elements</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <h1>Page with Various Elements for Testing</h1>
+
+    <div class="navigation" data-testid="navigation-buttons">
+      <button
+        onclick="window.location.href='lists.html'"
+        data-testid="go-to-lists-button"
+      >
+        Go to Lists
+      </button>
+
+      <button
+        onclick="window.location.href='index.html'"
+        data-testid="back-to-homepage-button"
+      >
+        Back to Homepage
+      </button>
+    </div>
+
+    <h2>Buttons</h2>
+    <button data-testid="basic-button">Basic Button</button>
+    <button disabled data-testid="disabled-button">Disabled Button</button>
+    <button data-testid="another-button" class="inny-styl">
+      Another Button
+    </button>
+
+    <h2>Progress Bar</h2>
+    <div class="form-group">
+      <label for="progress">Progress:</label>
+      <progress id="progress" value="70" max="100" data-testid="progress-bar">
+        70%
+      </progress>
+    </div>
+
+    <h2>Number Input</h2>
+    <div class="form-group">
+      <label for="number">Enter a number:</label>
+      <input
+        type="number"
+        id="number"
+        name="number"
+        min="0"
+        max="100"
+        value="50"
+        data-testid="number-input"
+      />
+    </div>
+
+    <h2>Range Input / Slider</h2>
+    <div class="form-group">
+      <label for="range">Select range:</label>
+      <input
+        type="range"
+        id="range"
+        name="range"
+        min="0"
+        max="100"
+        value="30"
+        data-testid="range-input"
+      />
+      <span id="range-value" data-testid="range-value-display">30</span>
+    </div>
+
+    <h2>Date Input</h2>
+    <div class="form-group">
+      <label for="date">Select date:</label>
+      <input type="date" id="date" name="date" data-testid="date-input" />
+    </div>
+
+    <h2>Color Input</h2>
+    <div class="form-group">
+      <label for="color">Choose color:</label>
+      <input
+        type="color"
+        id="color"
+        name="color"
+        value="#ff0000"
+        data-testid="color-input"
+      />
+    </div>
+
+    <h2>File Input</h2>
+    <div class="form-group">
+      <label for="file">Upload file:</label>
+      <input type="file" id="file" name="file" data-testid="file-input" />
+    </div>
+
+    <script>
+      const rangeInput = document.getElementById("range");
+      const rangeValueSpan = document.getElementById("range-value");
+
+      if (rangeInput && rangeValueSpan) {
+        rangeInput.addEventListener("input", function () {
+          rangeValueSpan.textContent = this.value;
+        });
+      }
+    </script>
+  </body>
+</html>

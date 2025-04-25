@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Logowanie</title>
+    <title>Login</title>
     <style>
       body {
         font-family: sans-serif;
@@ -74,31 +74,31 @@
     <div class="login-container">
       <button
         onclick="window.location.href='index.html'"
-        data-testid="przycisk-index"
+        data-testid="back-to-homepage-button"
       >
-        Powrót do Strony Głównej
+        Back to Homepage
       </button>
-      <h2>Logowanie</h2>
+      <h2>Login</h2>
       <form id="loginForm">
         <div class="form-group">
-          <label for="username">Nazwa użytkownika:</label>
+          <label for="username">Username:</label>
           <input type="text" id="username" name="username" required />
         </div>
         <div class="form-group">
-          <label for="password">Hasło:</label>
+          <label for="password">Password:</label>
           <input type="password" id="password" name="password" required />
         </div>
-        <button type="submit">Zaloguj się</button>
+        <button type="submit">Log In</button>
         <div id="errorMessage" class="error-message" style="display: none">
-          Nieprawidłowa nazwa użytkownika lub hasło.
+          Incorrect username or password.
         </div>
       </form>
     </div>
 
     <script>
-      // Sprawdź czy użytkownik jest już zalogowany
+      // Check if the user is already logged in
       if (localStorage.getItem("isLoggedIn") === "true") {
-        window.location.href = "zalogowany.html";
+        window.location.href = "logged_in.html";
       }
 
       document
@@ -115,7 +115,7 @@
 
           if (username === "demo" && password === "password") {
             localStorage.setItem("isLoggedIn", "true");
-            window.location.href = "zalogowany.html";
+            window.location.href = "logged_in.html";
           } else {
             errorMessageDiv.style.display = "block";
           }

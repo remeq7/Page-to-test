@@ -1,52 +1,53 @@
 <!DOCTYPE html>
-<html lang="pl">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Strona Testowa dla Playwright i Cypress</title>
+    <title>Test Page for Playwright and Cypress</title>
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <h1>Strona Testowa dla Automatyzacji</h1>
+    <h1>Test Page for Automation</h1>
 
     <div class="navigation" data-testid="navigation-buttons">
       <button
-        onclick="window.location.href='listy.html'"
+        onclick="window.location.href='lists.html'"
         data-testid="przycisk-listy"
       >
-        Przejdź do List
+        Go to Lists
       </button>
       <button
-        onclick="window.location.href='elementy.html'"
+        onclick="window.location.href='elements.html'"
         data-testid="przycisk-elementy"
       >
-        Przejdź do Elementów
+        Go to Elements
       </button>
       <button
         onclick="window.location.href='login.html'"
         data-testid="przycisk-login"
       >
-        Przejdź do Logowania
+        Go to Login
       </button>
     </div>
 
-          <button
+    <div>
+      <button
         onclick="window.location.href='user_form.html'"
         data-testid="przycisk-search"
       >
-        Przejdź do Wyszukiwania uzytkownika
+        Go to User Search
       </button>
     </div>
 
     <form id="testForm">
       <div class="form-group">
-        <label for="imie">Imię:</label>
+        <label for="name">Name:</label>
         <input
           type="text"
-          id="imie"
-          name="imie"
+          id="name"
+          name="name"
           data-testid="input-imie"
-          placeholder="Wpisz swoje imię"
+          placeholder="Enter your name"
         />
       </div>
 
@@ -57,103 +58,104 @@
           id="email"
           name="email"
           data-testid="input-email"
-          placeholder="Wpisz swój email"
+          placeholder="Enter your email"
         />
       </div>
 
       <div class="form-group">
-        <label for="haslo">Hasło:</label>
+        <label for="password">Password:</label>
         <input
           type="password"
-          id="haslo"
-          name="haslo"
+          id="password"
+          name="password"
           data-testid="input-haslo"
         />
       </div>
 
       <div class="form-group">
-        <label for="plec">Płeć:</label>
+        <label for="gender">Gender:</label>
         <div>
+          <label for="male">Male</label>
           <input
             type="radio"
-            id="mezczyzna"
-            name="plec"
-            value="mezczyzna"
+            id="male"
+            name="gender"
+            value="male"
             data-testid="radio-mezczyzna"
           />
-          <label for="mezczyzna">Mężczyzna</label>
+
+          <label for="female">Female</label>
           <input
             type="radio"
-            id="kobieta"
-            name="plec"
-            value="kobieta"
+            id="female"
+            name="gender"
+            value="female"
             data-testid="radio-kobieta"
           />
-          <label for="kobieta">Kobieta</label>
+          <label for="other">Other</label>
           <input
             type="radio"
-            id="inne"
-            name="plec"
-            value="inne"
+            id="other"
+            name="gender"
+            value="other"
             data-testid="radio-inne"
           />
-          <label for="inne">Inne</label>
         </div>
       </div>
 
       <div class="form-group">
-        <label for="jezyk">Wybierz język:</label>
-        <select id="jezyk" name="jezyk" data-testid="select-jezyk">
-          <option value="">-- Wybierz --</option>
-          <option value="polski">Polski</option>
-          <option value="angielski">Angielski</option>
-          <option value="niemiecki">Niemiecki</option>
-          <option value="hiszpanski">Hiszpański</option>
+        <label for="language">Choose a language:</label>
+        <select id="language" name="language" data-testid="select-jezyk">
+          <option value="">-- Choose --</option>
+          <option value="polish">Polish</option>
+          <option value="english">English</option>
+          <option value="german">German</option>
+          <option value="spanish">Spanish</option>
         </select>
       </div>
 
       <div class="form-group">
-        <label for="zainteresowania">Zainteresowania:</label>
+        <label for="interests">Interests:</label>
         <div>
           <input
             type="checkbox"
-            id="programowanie"
-            name="zainteresowania"
-            value="programowanie"
+            id="programming"
+            name="interests"
+            value="programming"
             data-testid="checkbox-programowanie"
           />
-          <label for="programowanie">Programowanie</label>
+          <label for="programming">Programming</label>
           <input
             type="checkbox"
             id="sport"
-            name="zainteresowania"
+            name="interests"
             value="sport"
             data-testid="checkbox-sport"
           />
           <label for="sport">Sport</label>
           <input
             type="checkbox"
-            id="muzyka"
-            name="zainteresowania"
-            value="muzyka"
+            id="music"
+            name="interests"
+            value="music"
             data-testid="checkbox-muzyka"
           />
-          <label for="muzyka">Muzyka</label>
+          <label for="music">Music</label>
         </div>
       </div>
 
       <div class="form-group">
-        <label for="wiadomosc">Wiadomość:</label>
+        <label for="message">Message:</label>
         <textarea
-          id="wiadomosc"
-          name="wiadomosc"
+          id="message"
+          name="message"
           rows="5"
           cols="30"
           data-testid="textarea-wiadomosc"
         ></textarea>
       </div>
 
-      <button type="submit" data-testid="przycisk-wyslij">Wyślij</button>
+      <button type="submit" data-testid="przycisk-wyslij">Submit</button>
     </form>
   </body>
 </html>
