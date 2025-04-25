@@ -1,6 +1,6 @@
 describe("Elements Test Page", () => {
   beforeEach(() => {
-    cy.visit("html/elements.html");
+    cy.visit("elements.html");
   });
 
   it("should display the main heading", () => {
