@@ -1,6 +1,6 @@
 describe("Elements Test Page", () => {
   beforeEach(() => {
-    cy.visit("html/elements.html"); // Adjust the path as needed
+    cy.visit("html/elements.html");
   });
 
   it("should display the main heading", () => {
@@ -95,11 +95,8 @@ describe("Elements Test Page", () => {
         .should("have.value", "#ff0000");
     });
 
-    // Note: Programmatically setting or asserting the chosen color might be browser-dependent and complex.
-    // You might want to visually inspect or test interactions if needed.
     it("should allow the user to interact with the color picker", () => {
       cy.get('[data-testid="color-input"]').click();
-      // You could add further interactions here if needed, but programmatic color selection is tricky.
     });
   });
 
@@ -110,8 +107,6 @@ describe("Elements Test Page", () => {
         .should("have.attr", "type", "file");
     });
 
-    // Note: Testing file uploads properly requires more setup and might involve a backend.
-    // This test only checks if the element is present.
     it("should allow the user to select a file", () => {
       cy.get('[data-testid="file-input"]').selectFile(
         "cypress/fixtures/example.txt",
