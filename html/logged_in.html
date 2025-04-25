@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Logged In</title>
+    <link rel="stylesheet" href="../css/style.css" />
+  </head>
+  <body>
+    <div class="logged-in-container">
+      <h1>Welcome, logged in user!</h1>
+      <button id="logoutButton">Log Out</button>
+    </div>
+
+    <script>
+      // Check if the user is NOT logged in
+      if (localStorage.getItem("isLoggedIn") !== "true") {
+        window.location.href = "login.html";
+      }
+
+      document
+        .getElementById("logoutButton")
+        .addEventListener("click", function () {
+          localStorage.removeItem("isLoggedIn");
+          window.location.href = "login.html";
+        });
+    </script>
+  </body>
+</html>

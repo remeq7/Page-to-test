@@ -1,17 +1,50 @@
+/* --- Base Body Styles --- */
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 20px;
-  background-color: #f7f7f7;
   color: #333;
   line-height: 1.6;
 }
 
+/* Different Body Backgrounds Based on Context */
+body {
+  background-color: #f7f7f7; /* Default Background */
+}
+
+body.login {
+  background-color: #f4f4f4; /* Login Page Background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+body.logged-in {
+  background-color: #e0f7fa; /* Logged In Page Background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+  text-align: center;
+}
+
+body.user-form {
+  background-color: #f4f4f4; /* User Form Background */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* --- Headings --- */
 h1,
 h2 {
-  color: #2c3e50; /* Ciemniejszy szary/niebieski */
+  color: #2c3e50; /* Darker Gray/Blue */
   margin-bottom: 15px;
 }
 
+/* --- Navigation --- */
 .navigation {
   margin-bottom: 25px;
 }
@@ -20,7 +53,7 @@ h2 {
   padding: 12px 20px;
   margin-right: 15px;
   cursor: pointer;
-  background-color: #3498db; /* Jasny niebieski */
+  background-color: #3498db; /* Light Blue */
   color: white;
   border: none;
   border-radius: 8px;
@@ -29,11 +62,18 @@ h2 {
 }
 
 .navigation button:hover {
-  background-color: #2980b9; /* Ciemniejszy niebieski */
+  background-color: #2980b9; /* Darker Blue */
 }
 
+/* --- Forms --- */
 .form-group {
   margin-bottom: 25px;
+  text-align: left; /* Default Text Alignment in Form Group */
+}
+
+/* Specific Alignment for Login Form */
+.login-container .form-group {
+  text-align: left;
 }
 
 label {
@@ -43,6 +83,7 @@ label {
   color: #555;
 }
 
+/* Styles for Text, Email, Password, Number, Select, and Textarea Inputs */
 input[type="text"],
 input[type="email"],
 input[type="password"],
@@ -55,6 +96,14 @@ textarea {
   border-radius: 8px;
   box-sizing: border-box;
   font-size: 16px;
+}
+
+/* Specific Styles for Text and Password Inputs in Login */
+.login-container input[type="text"],
+.login-container input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border-radius: 4px;
 }
 
 input[type="text"]:focus,
@@ -73,21 +122,79 @@ input[type="checkbox"] {
   margin-right: 10px;
 }
 
-button[type="submit"] {
-  padding: 14px 22px;
-  background-color: #2ecc71; /* Zielony */
-  color: white;
+/* --- Buttons --- */
+button {
+  padding: 12px 20px; /* Default Padding for Buttons */
+  margin-right: 15px; /* Default Right Margin for Buttons */
+  cursor: pointer;
   border: none;
   border-radius: 8px;
-  cursor: pointer;
   font-size: 16px;
   transition: background-color 0.3s ease;
 }
 
-button[type="submit"]:hover {
-  background-color: #27ae60; /* Ciemniejszy zielony */
+/* Navigation Buttons (Inherit from General Button Styles) */
+.navigation button {
+  background-color: #3498db; /* Light Blue */
+  color: white;
 }
 
+.navigation button:hover {
+  background-color: #2980b9; /* Darker Blue */
+}
+
+/* "Log In" Button */
+button[type="submit"] {
+  padding: 14px 22px;
+  background-color: #2ecc71; /* Green */
+  color: white;
+}
+
+button[type="submit"]:hover {
+  background-color: #27ae60; /* Darker Green */
+}
+
+/* Specific "Log In" Button in Login Container */
+.login-container button[type="submit"] {
+  padding: 10px 15px;
+  border-radius: 4px;
+  width: 100%;
+  background-color: #007bff; /* Different Shade of Blue */
+}
+
+.login-container button[type="submit"]:hover {
+  background-color: #0056b3; /* Darker Shade of Blue */
+}
+
+/* "Log Out" Button */
+button#logoutButton {
+  background-color: #d32f2f; /* Red */
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+}
+
+button#logoutButton:hover {
+  background-color: #b71c1c; /* Darker Red */
+}
+
+/* Other Buttons (Not Submit) */
+button:not([type="submit"]) {
+  background-color: #7f8c8d; /* Gray */
+  color: white;
+}
+
+button:not([type="submit"]):hover {
+  background-color: #6c7a7d; /* Darker Gray */
+}
+
+button[disabled] {
+  background-color: #ddd;
+  color: #888;
+  cursor: not-allowed;
+}
+
+/* --- Lists --- */
 ul,
 ol {
   margin-left: 25px;
@@ -104,6 +211,27 @@ li {
   margin-bottom: 10px;
 }
 
+.lista-specjalna {
+  border: 2px solid #27ae60; /* Green */
+  padding: 20px;
+  border-radius: 10px;
+  background-color: #f0fff0; /* Light Green */
+}
+
+.naglowek-listy {
+  color: #9b59b6; /* Purple */
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.element-parzysty {
+  background-color: #ecf0f1; /* Light Gray */
+  padding: 5px;
+  margin-bottom: 3px;
+  border-radius: 3px;
+}
+
+/* --- Links --- */
 a {
   color: #3498db;
   text-decoration: none;
@@ -115,6 +243,7 @@ a:hover {
   text-decoration: underline;
 }
 
+/* --- Definition Lists --- */
 dl {
   margin-left: 25px;
   margin-bottom: 20px;
@@ -132,80 +261,9 @@ dd {
   color: #777;
 }
 
-button:not([type="submit"]) {
-  padding: 12px 20px;
-  margin-right: 15px;
-  cursor: pointer;
-  background-color: #7f8c8d; /* Szary */
-  color: white;
-  border: none;
-  border-radius: 8px;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
-}
-
-button:not([type="submit"]):hover {
-  background-color: #6c7a7d; /* Ciemniejszy szary */
-}
-
-button[disabled] {
-  background-color: #ddd;
-  color: #888;
-  cursor: not-allowed;
-}
-
-progress {
-  width: 300px;
-  height: 20px;
-  border-radius: 10px;
-  background-color: #eee;
-  border: none;
-}
-
-progress::-webkit-progress-bar {
-  background-color: #eee;
-  border-radius: 10px;
-}
-
-progress::-webkit-progress-value {
-  background-color: #3498db;
-  border-radius: 10px;
-}
-
-input[type="range"] {
-  width: 300px;
-}
-
-#wartosc-zakresu {
-  display: inline-block;
-  margin-left: 10px;
-  color: #777;
-  font-size: 16px;
-}
-
-.lista-specjalna {
-  border: 2px solid #27ae60; /* Zielony */
-  padding: 20px;
-  border-radius: 10px;
-  background-color: #f0fff0; /* Jasnozielony */
-}
-
-.naglowek-listy {
-  color: #9b59b6; /* Fioletowy */
-  font-size: 1.5em;
-  margin-bottom: 10px;
-}
-
-.element-parzysty {
-  background-color: #ecf0f1; /* Jasnoszary */
-  padding: 5px;
-  margin-bottom: 3px;
-  border-radius: 3px;
-}
-
 .termin-definicji {
   font-weight: bold;
-  color: #e67e22; /* Pomarańczowy */
+  color: #e67e22; /* Orange */
 }
 
 .opis-definicji {
@@ -213,21 +271,7 @@ input[type="range"] {
   color: #777;
 }
 
-/* User form */
-body {
-  font-family: sans-serif;
-  margin: 20px;
-  background-color: #f4f4f4;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-h1 {
-  color: #333;
-  margin-bottom: 20px;
-}
-
+/* --- User Form Elements --- */
 #user-form {
   background-color: #fff;
   padding: 20px;
@@ -239,31 +283,18 @@ h1 {
   align-items: center;
 }
 
-label {
+#user-form label {
   font-weight: bold;
 }
 
-input[type="number"] {
+#user-form input[type="number"] {
   padding: 8px;
   border: 1px solid #ccc;
   border-radius: 4px;
   width: 150px;
 }
 
-button[type="submit"] {
-  background-color: #007bff;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-  font-size: 16px;
-}
-
-button[type="submit"]:hover {
-  background-color: #0056b3;
-}
-
+/* --- User Details Display --- */
 #user-details {
   background-color: #e9ecef;
   padding: 20px;
@@ -296,4 +327,86 @@ button[type="submit"]:hover {
 #user-details .not-found {
   color: orange;
   font-weight: bold;
+}
+
+/* --- Error Messages --- */
+.error-message {
+  color: red;
+  margin-top: 10px;
+}
+
+/* --- Progress and Range Elements --- */
+progress {
+  width: 300px;
+  height: 20px;
+  border-radius: 10px;
+  background-color: #eee;
+  border: none;
+}
+
+progress::-webkit-progress-bar {
+  background-color: #eee;
+  border-radius: 10px;
+}
+
+progress::-webkit-progress-value {
+  background-color: #3498db;
+  border-radius: 10px;
+}
+
+input[type="range"] {
+  width: 300px;
+}
+
+#wartosc-zakresu {
+  display: inline-block;
+  margin-left: 10px;
+  color: #777;
+  font-size: 16px;
+}
+
+/* --- Login Container --- */
+.login-container {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 300px;
+  text-align: center;
+}
+
+.login-container h2 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* --- Form Groups in Login Container --- */
+.login-container .form-group {
+  margin-bottom: 15px;
+}
+
+.login-container label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+/* --- Logged In User Container --- */
+.logged-in-container {
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.logged-in-container h1 {
+  color: #2e7d32;
+  margin-bottom: 20px;
+}
+
+#range-value {
+  display: inline-block;
+  margin-left: 10px;
+  color: #777;
+  font-size: 16px;
 }
