@@ -21,7 +21,7 @@ describe("Login Page Tests", () => {
     cy.get("#errorMessage")
       .should("be.visible")
       .should("contain", "Incorrect username or password.");
-    cy.url().should("include", "login.html"); // Should remain on the login page
+    cy.url().should("include", "login.html"); // Should remain on the login pagetest
     cy.window().then((win) => {
       expect(win.localStorage.getItem("isLoggedIn")).to.be.null; // Check if localStorage was not set
     });
